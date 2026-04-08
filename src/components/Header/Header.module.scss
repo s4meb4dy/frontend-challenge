@@ -1,0 +1,37 @@
+.header {
+  background-color: var(--color-light-blue);
+  height: 64px;
+  width: 100%;
+  display: flex;
+  position: sticky;
+  z-index: 100;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+}
+
+.headerContainer {
+  padding-left: 62px;
+  display: flex;
+  height: 100%;
+}
+
+.link {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  color: rgba(#FFFFFF,0.7);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  line-height: 21px;
+  letter-spacing: 0.25px;
+
+  &:hover {
+    background-color: var(--color-dark-blue);
+    color: #FFFFFF;
+  }
+}
+
+.activeBackground {
+  color: white;
+  background-color: var(--color-dark-blue);
+}
