@@ -7,10 +7,10 @@
   transition: all 0.3s ease;
   padding: 0;
 
+
   &:hover {
     box-shadow: 0 6px 5px rgba(0, 0, 0, 0.24);
-    transform: scale(1.03);
-
+    transform: scale(1.1);
     .favoriteBtn {
       opacity: 1;
     }
@@ -22,6 +22,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  vertical-align: middle;
 }
 
 .favoriteBtn {
@@ -29,20 +30,21 @@
   bottom: 25px;
   right: 20px;
   width: 40px;
-  height: auto;
+  height: 37px;
   border: none;
-  background: transparent;
   z-index: 100;
-  background-color: red;
-
   opacity: 0;
   transition: opacity 0.2s ease;
-
   background-image: url('../../assets/images/heartBefore.png');
   background-repeat: no-repeat;
+  background-color: transparent;
+  outline: none;
 
   :global(.card):hover {
     opacity: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
   }
 
   &.activeFavoriteBtn {

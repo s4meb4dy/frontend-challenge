@@ -15,8 +15,7 @@ const CatCard = ({ url }) => {
             <button
                 className={`${styles.favoriteBtn} ${isFavorite ? styles.activeFavoriteBtn : ''}`}
                 onClick={addFav}
-            >
-            </button>
+            />
         </div>
     )
 }

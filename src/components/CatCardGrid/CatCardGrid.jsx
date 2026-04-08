@@ -10,7 +10,7 @@ const CatCardGrid = ({ cats }) => {
                     <CatCard key={index} url={cat.url}/>
                 ))}
             </div>
-            <p className={styles.loader}>... згружаем котиков ...</p>
+            <p className={styles.loader}>... загружаем котиков ...</p>
         </main>
     )
 }
