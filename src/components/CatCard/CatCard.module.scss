@@ -3,7 +3,6 @@
   height: 225px;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
 
@@ -11,6 +10,7 @@
   &:hover {
     box-shadow: 0 6px 5px rgba(0, 0, 0, 0.24);
     transform: scale(1.1);
+
     .favoriteBtn {
       opacity: 1;
     }
@@ -34,21 +34,52 @@
   border: none;
   z-index: 100;
   opacity: 0;
-  transition: opacity 0.2s ease;
-  background-image: url('../../assets/images/heartBefore.png');
-  background-repeat: no-repeat;
+  transition: opacity 0.3s ease;
   background-color: transparent;
+  cursor: pointer;
   outline: none;
 
-  :global(.card):hover {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: opacity 0.3s ease;
+  }
+
+  &::before {
+    background-image: url('../../assets/images/heartBefore.png');
     opacity: 1;
-    background-color: transparent;
-    border: none;
-    outline: none;
+  }
+
+  &::after {
+    background-image: url('@/assets/images/heartAfter.png');
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+  &:hover::before {
+    opacity: 0;
   }
 
   &.activeFavoriteBtn {
-    background-image: url('@/assets/images/heartAfter.png');
     opacity: 1 !important;
+    &::after {
+      opacity: 1;
+    }
+    &::before {
+      opacity: 0;
+    }
   }
+}
+
+.card:hover .favoriteBtn {
+  opacity: 1;
 }
