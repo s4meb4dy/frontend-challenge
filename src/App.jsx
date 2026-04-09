@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from '@/components/Header'
 import AllCats from '@/pages/AllCats/AllCats.jsx'
 import FavoriteCats from '@/pages/FavoriteCats/FavoriteCats.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
