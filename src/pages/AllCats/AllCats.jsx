@@ -1,23 +1,27 @@
+import { useState, useEffect } from 'react'
+import { fetchCats } from "@/components/api/cats.js";
+
 import CatCardGrid from '@/components/CatCardGrid';
 
 const AllCats = () => {
-    const mockCats = [
-        { id: 1, url: 'https://cdn2.thecatapi.com/images/bi.jpg' },
-        { id: 2, url: 'https://cdn2.thecatapi.com/images/bi.jpg' },
-        { id: 3, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-        { id: 4, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-        { id: 5, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-        { id: 6, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-        { id: 7, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-        { id: 8, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-        { id: 9, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-        { id: 10, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-        { id: 11, url: 'https://cdn2.thecatapi.com/images/6sn.jpg' },
-    ]
+    const [cats, setCats] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await fetchCats(10)
+            setCats(data)
+            setIsLoading(false)
+        }
+
+        loadData()
+    }, [])
+
+    if (isLoading) return <div>Котики уже бегут...</div>
 
     return (
         <section>
-            <CatCardGrid cats={mockCats}/>
+            <CatCardGrid cats={cats}/>
         </section>
     )
 }
